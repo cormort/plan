@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>專案企劃書：AI 擘劃特種基金預算管理新未來</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;600;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root {
+            --primary-navy: #161625;
+            --secondary-navy: #2b2b41;
+            --accent-lime: #2b7a0b; /* Darker lime for white background readability */
+            --print-lime: #4caf50;
+            --text-main: #333333;
+            --text-light: #666666;
+            --bg-gray: #f4f4f9;
+        }
+
+        body {
+            font-family: 'Noto Sans TC', sans-serif;
+            background-color: var(--bg-gray);
+            color: var(--text-main);
+            line-height: 1.8;
+            margin: 0;
+            padding: 40px 20px;
+            /* Increased base font size */
+            font-size: 19px; 
+        }
+
+        /* Report Container (A4-like feel) */
+        .report-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: white;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        /* Cover Page */
+        .cover-page {
+            background-color: var(--primary-navy);
+            color: white;
+            padding: 100px 60px;
+            text-align: center;
+            min-height: 800px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cover-page::before {
+            content: '';
+            position: absolute;
+            top: -200px; right: -200px;
+            width: 600px; height: 600px;
+            background: radial-gradient(circle, #deff9a 0%, transparent 70%);
+            opacity: 0.1;
+            border-radius: 50%;
+        }
+
+        .cover-title {
+            font-family: 'Urbanist', sans-serif;
+            font-size: 56px; /* Increased title size */
+            font-weight: 700;
+            color: #deff9a; /* Bright lime for dark background */
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .cover-subtitle {
+            font-size: 28px; /* Increased subtitle size */
+            font-weight: 300;
+            color: #e0e0e0;
+            margin-bottom: 60px;
+        }
+
+        .cover-info {
+            margin-top: auto;
+            border-top: 1px solid rgba(255,255,255,0.2);
+            padding-top: 40px;
+            text-align: left;
+            font-size: 18px; /* Increased info size */
+            color: #cccccc;
+        }
+
+        .cover-info p { margin: 8px 0; }
+
+        /* Main Content Styling */
+        .content-body {
+            padding: 60px;
+        }
+
+        h1 {
+            font-size: 36px; /* Increased h1 */
+            color: var(--primary-navy);
+            border-bottom: 4px solid var(--accent-lime);
+            padding-bottom: 15px;
+            margin-top: 70px;
+            margin-bottom: 35px;
+        }
+        
+        h1:first-child { margin-top: 0; }
+
+        h2 {
+            font-size: 28px; /* Increased h2 */
+            color: var(--secondary-navy);
+            margin-top: 50px;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+        }
+
+        h2::before {
+            content: '';
+            display: inline-block;
+            width: 10px;
+            height: 28px;
+            background-color: var(--accent-lime);
+            margin-right: 15px;
+            border-radius: 2px;
+        }
+
+        h3 {
+            font-size: 24px; /* Increased h3 */
+            color: var(--text-main);
+            font-weight: 700;
+            margin-top: 35px;
+            margin-bottom: 20px;
+        }
+
+        p { margin-bottom: 25px; text-align: justify; }
+
+        /* Lists */
+        ul, ol { margin-bottom: 25px; padding-left: 30px; }
+        li { margin-bottom: 12px; }
+        
+        strong { color: var(--primary-navy); font-weight: 700; }
+
+        /* Table Styling */
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 35px 0;
+            font-size: 19px; /* Increased table text */
+        }
+
+        .data-table th {
+            background-color: var(--primary-navy);
+            color: white;
+            padding: 18px;
+            text-align: left;
+            font-weight: 500;
+        }
+
+        .data-table td {
+            padding: 18px;
+            border-bottom: 1px solid #eeeeee;
+            vertical-align: top;
+        }
+
+        .data-table tr:nth-child(even) { background-color: #f9f9f9; }
+        
+        .tag {
+            display: inline-block;
+            padding: 5px 12px;
+            border-radius: 4px;
+            font-size: 14px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        .tag-pain { background-color: #ffebee; color: #c62828; }
+        .tag-solution { background-color: #e8f5e9; color: #2e7d32; }
+
+        /* Feature Cards (Three Pillars) */
+        .pillars-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin: 35px 0;
+        }
+
+        .pillar-card {
+            background-color: white;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+            transition: transform 0.2s;
+        }
+
+        .pillar-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0,0,0,0.05);
+            border-color: var(--accent-lime);
+        }
+
+        .pillar-icon {
+            font-size: 40px;
+            color: var(--accent-lime);
+            margin-bottom: 20px;
+        }
+
+        /* Case Study Box */
+        .case-study-box {
+            background-color: #f0f4f8;
+            border-left: 6px solid var(--primary-navy);
+            padding: 35px;
+            border-radius: 0 8px 8px 0;
+            margin: 35px 0;
+        }
+
+        .case-study-title {
+            color: var(--primary-navy);
+            font-weight: 700;
+            font-size: 22px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        /* Roadmap Styling */
+        .roadmap-container {
+            position: relative;
+            margin: 50px 0;
+            padding-left: 40px;
+            border-left: 3px solid #e0e0e0;
+        }
+
+        .roadmap-item {
+            position: relative;
+            margin-bottom: 50px;
+        }
+
+        .roadmap-item::before {
+            content: '';
+            position: absolute;
+            left: -51px;
+            top: 0;
+            width: 18px;
+            height: 18px;
+            background-color: white;
+            border: 5px solid var(--accent-lime);
+            border-radius: 50%;
+        }
+
+        .roadmap-phase {
+            font-size: 16px;
+            text-transform: uppercase;
+            color: var(--accent-lime);
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
+        /* Footer */
+        .report-footer {
+            background-color: #f9f9f9;
+            padding: 40px 60px;
+            text-align: center;
+            color: var(--text-light);
+            font-size: 16px;
+            border-top: 1px solid #eeeeee;
+        }
+
+        /* Print Optimizations */
+        @media print {
+            body { background-color: white; padding: 0; font-size: 12pt; }
+            .report-container { box-shadow: none; max-width: 100%; }
+            .cover-page { background-color: white; color: black; border-bottom: 2px solid black; min-height: auto; padding: 60px 0; }
+            .cover-page::before { display: none; }
+            .cover-title { color: black; }
+            .cover-subtitle { color: #333; }
+            .cover-info { color: #333; border-top: 1px solid #333; }
+            .data-table th { background-color: #eee; color: black; border-bottom: 2px solid black; }
+            .tag-pain, .tag-solution { border: 1px solid #ccc; background-color: white; }
+            .case-study-box { background-color: white; border: 1px solid #ccc; border-left: 5px solid black; }
+            a { text-decoration: none; color: black; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="report-container">
+        <!-- Cover Page -->
+        <div class="cover-page">
+            <div class="cover-title">AI 擘劃特種基金<br>預算管理新未來</div>
+            <div class="cover-subtitle">從單點數位化到全面智能環境：<br>建構學習型組織，打造高效決策引擎</div>
+            
+            <div class="cover-info">
+                <p><strong>提案單位：</strong> 行政院主計總處 | 組織轉型計畫</p>
+                <p><strong>文件類型：</strong> 轉型策略說明書</p>
+                <p><strong>日期：</strong> 2025年</p>
+            </div>
+        </div>
+
+        <!-- Content Body -->
+        <div class="content-body">
+
+            <!-- Section 1 -->
+            <h1>壹、 計畫緣起與願景</h1>
+            
+            <h3>1.1 願景：打造「智能賦能」的主計總處</h3>
+            <p>本計畫旨在推動組織從傳統的預算審核者（Gatekeeper），轉型為政策效能與財務健康的「<strong>智能擘劃者</strong>」。我們不只是導入新技術，更致力於建構一個讓每位同仁都能發揮最大價值的智能環境。</p>
+
+            <h3>1.2 核心價值轉變</h3>
+            <p>為實現上述願景，本計畫確立三大核心價值：</p>
+            <ul>
+                <li><strong>學習文化 (Culture)：</strong> 推動知識去中心化，從單點技術依賴轉向集體智能協作。</li>
+                <li><strong>智能環境 (Environment)：</strong> 建構高效率工具鏈，讓「正確做事」變得簡單、直覺。</li>
+                <li><strong>決策深化 (Insight)：</strong> 利用結構化工具輔助策略分析，大幅提升決策的科學性與邏輯密度。</li>
+            </ul>
+
+            <!-- Section 2 -->
+            <h1>貳、 現況分析與轉型目標</h1>
+            <p>面對日益龐雜的業務需求，我們盤點了現行作業的三大痛點，並提出對應的未來解方：</p>
+
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th width="20%">評估面向</th>
+                        <th width="40%">現況痛點 (As-Is)</th>
+                        <th width="40%">未來解方 (To-Be)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>作業效率</strong></td>
+                        <td>
+                            <span class="tag tag-pain">Pain Point</span><br>
+                            <strong>過時流程：</strong> 耗費大量時間於文件合併、手動檢查數據等低產值重複性作業。
+                        </td>
+                        <td>
+                            <span class="tag tag-solution">Solution</span><br>
+                            <strong>智能工具鏈：</strong> 部署 Excel Merge、PDF Recompose 等工具，實現秒級作業自動化。
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>組織文化</strong></td>
+                        <td>
+                            <span class="tag tag-pain">Pain Point</span><br>
+                            <strong>單點風險：</strong> AI 應用知識集中於少數人員，轉型成果難以擴散，存在人才斷層風險。
+                        </td>
+                        <td>
+                            <span class="tag tag-solution">Solution</span><br>
+                            <strong>學習型組織：</strong> 透過 Learning Toolkit 建立自我學習機制，普及數位技能。
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>管理決策</strong></td>
+                        <td>
+                            <span class="tag tag-pain">Pain Point</span><br>
+                            <strong>經驗導向：</strong> 政策攻防與預算決策仰賴個人經驗與直覺，缺乏結構化分析輔助。
+                        </td>
+                        <td>
+                            <span class="tag tag-solution">Solution</span><br>
+                            <strong>結構化決策：</strong> 應用 Strategy Toolkit 提升管理深度與論述邏輯。
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- Section 3 -->
+            <h1>參、 轉型策略三支柱</h1>
+            <p>本計畫將透過「人員、環境、流程」三大支柱同步驅動轉型：</p>
+
+            <div class="pillars-grid">
+                <!-- Pillar 1 -->
+                <div class="pillar-card">
+                    <div class="pillar-icon"><i class="fa-solid fa-users-gear"></i></div>
+                    <h3>人員 (People)</h3>
+                    <p><strong>目標：提升學習文化</strong><br>消除對單一開發者的依賴，將個人技能轉化為組織資產。</p>
+                    <hr style="border:0; border-top:1px solid #eee; margin: 15px 0;">
+                    <ul style="font-size: 17px; padding-left: 20px;">
+                        <li>啟動「AI 應用種子團隊」</li>
+                        <li>知識庫化與沙盒演練</li>
+                        <li>角色轉型：成為流程設計師</li>
+                    </ul>
+                </div>
+
+                <!-- Pillar 2 -->
+                <div class="pillar-card">
+                    <div class="pillar-icon"><i class="fa-solid fa-laptop-code"></i></div>
+                    <h3>環境 (Environment)</h3>
+                    <p><strong>目標：建構智能工具鏈</strong><br>建立包含資料蒐集、錯誤檢查、管理分析的友善數位環境。</p>
+                    <hr style="border:0; border-top:1px solid #eee; margin: 15px 0;">
+                    <ul style="font-size: 17px; padding-left: 20px;">
+                        <li>PDF Recompose / Viewer</li>
+                        <li>Multi-Excel Merge</li>
+                        <li>預算審查品管員</li>
+                    </ul>
+                </div>
+
+                <!-- Pillar 3 -->
+                <div class="pillar-card">
+                    <div class="pillar-icon"><i class="fa-solid fa-robot"></i></div>
+                    <h3>流程 (Process)</h3>
+                    <p><strong>目標：自動化與標準化</strong><br>從「撰寫程式」轉向「流程設計」。</p>
+                    <hr style="border:0; border-top:1px solid #eee; margin: 15px 0;">
+                    <ul style="font-size: 17px; padding-left: 20px;">
+                        <li>IVOD 自動化監控</li>
+                        <li>識別高重複性業務</li>
+                        <li>串接自動化工作流 (Workflow)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Section 4 -->
+            <h1>肆、 實證案例分析</h1>
+            
+            <div class="case-study-box">
+                <div class="case-study-title"><i class="fa-solid fa-lightbulb"></i> 應用案例：財政收支劃分法修法</div>
+                <p>以「財政收支劃分法」修法議題為例，展示導入 <strong>Strategy Toolkit</strong> 後的效益對比：</p>
+                
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 25px;">
+                    <div>
+                        <strong><i class="fa-solid fa-xmark" style="color: #c62828;"></i> 傳統模式</strong>
+                        <p style="font-size: 17px; color: #555; margin-top: 8px;">同仁需人工搜集新聞、法條，憑經驗撰寫說帖，視角容易單一且耗時。</p>
+                    </div>
+                    <div>
+                        <strong><i class="fa-solid fa-check" style="color: #2e7d32;"></i> 智能模式</strong>
+                        <p style="font-size: 17px; color: #555; margin-top: 8px;">AI 自動生成支持方、反對方論點及折衷方案。模擬辯論劇本並生成金句。</p>
+                    </div>
+                </div>
+                <div style="margin-top: 25px; background: white; padding: 15px 20px; border-radius: 6px; border: 1px solid #ddd; text-align: center; font-weight: 700; color: var(--accent-lime); font-size: 20px;">
+                    效益：備詢準備時間縮短 70%
+                </div>
+            </div>
+
+            <!-- Section 5 -->
+            <h1>伍、 推動路徑圖 (Roadmap)</h1>
+
+            <div class="roadmap-container">
+                <div class="roadmap-item">
+                    <div class="roadmap-phase">第一階段：基礎建設 (Foundation)</div>
+                    <h3>文化養成與環境建置</h3>
+                    <p>正式啟動「AI 應用種子團隊」，並全面部署 PDF Recompose 與 Excel Merge 等速效工具 (Quick Wins)。</p>
+                </div>
+
+                <div class="roadmap-item">
+                    <div class="roadmap-phase">第二階段：智能深化 (Integration)</div>
+                    <h3>流程標準化</h3>
+                    <p>導入 Strategy Toolkit 輔助決策，並試運行 IVOD 自動化監控系統，整合工作流程。</p>
+                </div>
+
+                <div class="roadmap-item">
+                    <div class="roadmap-phase">第三階段：全面擴展 (Scale)</div>
+                    <h3>全面自動化與資產化</h3>
+                    <p>串接點狀工具形成無縫數位工作流；種子團隊完全接手工具維護與迭代，實現知識資產化。</p>
+                </div>
+            </div>
+
+            <!-- Section 6 -->
+            <h1>陸、 結語與資源需求</h1>
+            <p>我們的轉型不只是技術的導入，而是建立一個以人為本、環境先行的永續生態系。為確保計畫順利推動，懇請長官支持以下關鍵資源：</p>
+            <ol>
+                <li><strong>Learning Toolkit 開發資源：</strong> 建立知識傳承的數位平台。</li>
+                <li><strong>種子團隊 (Seed Team) 運作機制：</strong> 給予團隊成員適當的培訓時間與資源支持。</li>
+            </ol>
+            <p style="text-align: center; margin-top: 50px; font-weight: 700; font-size: 24px; color: var(--primary-navy);">
+                投資於文化，始能實現永續。
+            </p>
+
+        </div>
+
+        <!-- Footer -->
+        <div class="report-footer">
+            行政院主計總處 | 內部文件 | 2025 Organizational Transformation Plan
+        </div>
+    </div>
+
+</body>
+</html>
